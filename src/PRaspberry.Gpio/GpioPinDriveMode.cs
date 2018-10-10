@@ -8,7 +8,7 @@ namespace Raspberry.GPIO
 {
     public enum GpioPinDriveMode
     {
-        Input,
-        Output
+        In,
+        Out
     }
 }

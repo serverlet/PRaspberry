@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,17 +9,16 @@ namespace Raspberry.GPIO
     {
         private static GpioPinManager instance = new GpioPinManager();
 
-        public static string DevicePath { get; private set; }
+        const string DevicePath = "\\sys\\class\\gpio";
 
         public static GpioPinManager Instance
         {
             get
             {
-                if (Environment.OSVersion.Platform != PlatformID.Unix)
+                /*if (Environment.OSVersion.Platform != PlatformID.Unix)
                 {
-                    throw new NotSupportedException("不支持当前操作系统");
-                }
-                DevicePath = "/sys/class/gpio";
+                    throw new NotSupportedException("鍙敮鎸丩inux绯荤粺");
+                }*/
                 return instance;
             }
         }
@@ -45,32 +44,25 @@ namespace Raspberry.GPIO
 
         public GpioPin Open(Pin pinNumber)
         {
-            // add a file to the export directory with the name <<pin number>>
-            // add folder under device path for "gpio<<pinNumber>>"
-            var gpioDirectoryPath = Path.Combine(DevicePath, string.Concat("gpio", (int)pinNumber));
-
+            var gpioDirectoryPath = Path.Combine(DevicePath, string.Concat("gpio", pinNumber.ToString("d")));
             var gpioExportPath = Path.Combine(DevicePath, "export");
-Console.WriteLine(gpioExportPath);
             if (!Directory.Exists(gpioDirectoryPath))
             {
-                File.WriteAllText(gpioExportPath, ((int)pinNumber).ToString());
-                Directory.CreateDirectory(gpioDirectoryPath);
+                File.WriteAllText(gpioExportPath, pinNumber.ToString("d"));
+                //Directory.CreateDirectory(gpioDirectoryPath);
             }
-	    
-
-            // instantiate the gpiopin object to return with the pin number.
             return new GpioPin(pinNumber, gpioDirectoryPath);
         }
 
         public void ClosePin(Pin pinNumber)
         {
-            var gpioDirectoryPath = Path.Combine(DevicePath, string.Concat("gpio", ((int)pinNumber).ToString()));
+            var gpioDirectoryPath = Path.Combine(DevicePath, string.Concat("gpio", pinNumber.ToString("d")));
 
             var gpioExportPath = Path.Combine(DevicePath, "unexport");
 
             if (Directory.Exists(gpioDirectoryPath))
             {
-                File.WriteAllText(gpioExportPath, ((int)pinNumber).ToString());
+                File.WriteAllText(gpioExportPath, pinNumber.ToString("d"));
             }
         }
     }

@@ -21,27 +21,30 @@ namespace Raspberry.GPIO
             controller.ClosePin(PinNumber);
             //Dispose();
         }
-
-        public void SetDriveMode(GpioPinDriveMode driveMode)
+        public GpioPinDriveMode DriveMode
         {
-            //var path = GpioController.DevicePath;
-            // write in or out to the "direction" file for this pin.
-            if (driveMode == GpioPinDriveMode.Output)
+            get
             {
-                File.WriteAllText(Path.Combine(this.GpioPath, "direction"), "out");
-                Directory.SetLastWriteTime(Path.Combine(this.GpioPath), DateTime.UtcNow);
+                string retu = File.ReadAllText(Path.Combine(this.GpioPath, "direction"));
+                return (GpioPinDriveMode)Enum.Parse(typeof(GpioPinDriveMode), retu, true);
             }
-            else
+            set
             {
-                File.WriteAllText(Path.Combine(this.GpioPath, "direction"), "in");
-                Directory.SetLastWriteTime(Path.Combine(this.GpioPath), DateTime.UtcNow);
+                if (value == GpioPinDriveMode.Out)
+                {
+                    File.WriteAllText(Path.Combine(this.GpioPath, "direction"), "out");
+                    Directory.SetLastWriteTime(Path.Combine(this.GpioPath), DateTime.UtcNow);
+                }
+                else
+                {
+                    File.WriteAllText(Path.Combine(this.GpioPath, "direction"), "in");
+                    Directory.SetLastWriteTime(Path.Combine(this.GpioPath), DateTime.UtcNow);
+                }
             }
         }
 
         public void Write(GpioPinValue pinValue)
         {
-            //var path = GpioController.DevicePath;
-            // write a 1 or a 0 to the "value" file for this pin
             File.WriteAllText(Path.Combine(this.GpioPath, "value"), ((int)pinValue).ToString());
             Directory.SetLastWriteTime(Path.Combine(this.GpioPath), DateTime.UtcNow);
         }

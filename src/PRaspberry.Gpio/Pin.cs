@@ -3,8 +3,8 @@ namespace Raspberry.GPIO
 {
     public enum Pin
     {
-        Pin0,
-        Pin1,
+        //Pin0,
+        Pin1 = 1,
         Pin2,
         Pin3,
         Pin4,
@@ -25,6 +25,8 @@ namespace Raspberry.GPIO
         Pin19,
         Pin20,
         Pin21,
-        Pin24 = 24
+        Pin22,
+        Pin23,
+        Pin24
     }
 }
