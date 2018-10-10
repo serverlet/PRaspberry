@@ -9,7 +9,7 @@ namespace Raspberry.GPIO
     {
         private static GpioPinManager instance = new GpioPinManager();
 
-        const string DevicePath = "\\sys\\class\\gpio";
+        const string DevicePath = "/sys/class/gpio";
 
         public static GpioPinManager Instance
         {
@@ -23,22 +23,13 @@ namespace Raspberry.GPIO
             }
         }
 
-        public IDictionary<string, string> Pins
+        public IEnumerable<string> Pins
         {
             get
             {
                 DirectoryInfo gpioPinsDic = new DirectoryInfo(DevicePath);
-
-                IDictionary<string, string> keyvaluepairs = new Dictionary<string, string>();
-
-                var pinNames = gpioPinsDic.GetDirectories().Where(m => m.Name.StartsWith("gpio")).Where(m => !m.Name.StartsWith("gpiochip")).Select(m => m.Name).ToArray();
-
-                foreach (var pinName in pinNames)
-                {
-                    keyvaluepairs.Add(pinName, File.ReadAllText(Path.Combine(DevicePath, pinName, "value")));
-                }
-
-                return keyvaluepairs;
+                var pinNames = gpioPinsDic.GetDirectories().Where(m => m.Name.StartsWith("gpio")).Select(m => m.Name);//.ToArray();
+                return pinNames;
             }
         }
 

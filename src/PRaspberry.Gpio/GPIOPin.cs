@@ -45,7 +45,7 @@ namespace Raspberry.GPIO
 
         public void Write(GpioPinValue pinValue)
         {
-            File.WriteAllText(Path.Combine(this.GpioPath, "value"), ((int)pinValue).ToString());
+            File.WriteAllText(Path.Combine(this.GpioPath, "value"), pinValue.ToString("d"));
             Directory.SetLastWriteTime(Path.Combine(this.GpioPath), DateTime.UtcNow);
         }
 
