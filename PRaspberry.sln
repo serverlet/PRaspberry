@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{713C0AEE-18F2-491A-974C-C42BBA87AFCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRaspberry.Gpio", "src\PRaspberry.Gpio\PRaspberry.Gpio.csproj", "{F124AB30-0A21-46A1-A002-7F83D660BF10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRaspberry.Camera", "src\PRaspberry.Camera\PRaspberry.Camera.csproj", "{4AF12342-C020-4721-A3D7-126CADF80771}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Debug|x64.Build.0 = Debug|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Debug|x86.Build.0 = Debug|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Release|x64.ActiveCfg = Release|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Release|x64.Build.0 = Release|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Release|x86.ActiveCfg = Release|Any CPU
+		{F124AB30-0A21-46A1-A002-7F83D660BF10}.Release|x86.Build.0 = Release|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Debug|x64.Build.0 = Debug|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Debug|x86.Build.0 = Debug|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Release|x64.ActiveCfg = Release|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Release|x64.Build.0 = Release|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Release|x86.ActiveCfg = Release|Any CPU
+		{4AF12342-C020-4721-A3D7-126CADF80771}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F124AB30-0A21-46A1-A002-7F83D660BF10} = {713C0AEE-18F2-491A-974C-C42BBA87AFCD}
+		{4AF12342-C020-4721-A3D7-126CADF80771} = {713C0AEE-18F2-491A-974C-C42BBA87AFCD}
+	EndGlobalSection
+EndGlobal
